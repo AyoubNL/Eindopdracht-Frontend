@@ -4,4 +4,45 @@
     padding: 0;
 }
 
-body {}
+button {
+    border-radius: 4px;
+    border: none;
+    padding: 8px 16px;
+    background-color: #61777F;
+    color: white;
+    font-weight: bold;
+}
+
+button + button {
+    margin-left: 8px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a,
+a:visited,
+a:active {
+    color: #0d3b66;
+}
+
+a:hover {
+    color: #ea7e1f;
+}
+
+
+nav {
+    background-color: #FFFFFF;
+    color: black;
+    display: flex;
+    padding: 0 32px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a,
+nav a:visited,
+nav a:active {
+    color: white;
+}

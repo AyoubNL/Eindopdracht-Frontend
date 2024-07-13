@@ -5,11 +5,13 @@ import Signin from "./pages/signin/Signin.jsx";
 import Signup from "./pages/signup/Signup.jsx";
 import Fleet from "./pages/fleet/Fleet.jsx";
 import Notfound from "./pages/notfound/Notfound.jsx";
+import NavBar from "./components/navbar/NavBar.jsx";
 
 function App() {
 
     return (
         <>
+            <NavBar/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/signup' element={<Signup/>}/>
