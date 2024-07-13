@@ -6,6 +6,7 @@ import Signup from "./pages/signup/Signup.jsx";
 import Fleet from "./pages/fleet/Fleet.jsx";
 import Notfound from "./pages/notfound/Notfound.jsx";
 import NavBar from "./components/navbar/NavBar.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/fleet' element={<Fleet/>}/>
                 <Route path="*" element={<Notfound/>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }
