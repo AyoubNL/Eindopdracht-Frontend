@@ -21,6 +21,7 @@ function NavBar() {
                     type="button"
                     // onClick={logout}
                 >Log out</button>
+
                 <button
                     type="button"
                     onClick={() => navigate('/signin')}
@@ -30,7 +31,6 @@ function NavBar() {
                     type="button"
                     onClick={() => navigate('/signup')}
                 >Registreren</button>
-
             </div>
         </nav>
     );
