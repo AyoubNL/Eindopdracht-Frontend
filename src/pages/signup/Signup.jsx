@@ -33,11 +33,11 @@ function Signup() {
                     email: email,
                     password: password,
                     username: username,
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Api-Key': `${import.meta.env.VITE_API_KEY}`
-                    }
+                },{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': `${import.meta.env.VITE_API_KEY}`
+                }
                 }
             );
             navigate('/signin');
