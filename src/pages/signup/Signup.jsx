@@ -54,7 +54,7 @@ function Signup() {
                 <div className="text">Registreren</div>
                 <div className="underline"></div>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete='off'>
                 <div className="inputs">
                     <div className="input">
                         <img src={user_icon} alt="afbeelding van persoon"/>
