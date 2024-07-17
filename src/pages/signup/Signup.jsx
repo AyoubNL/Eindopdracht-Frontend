@@ -19,7 +19,7 @@ function Signup() {
 
         toggleIsAuth({
             ...isAuth,
-            user: {...isAuth.user, [changedFieldName] : e.target.value}
+            user: {...isAuth.user, [changedFieldName]: e.target.value}
         })
     }
 
@@ -29,17 +29,22 @@ function Signup() {
         toggleLoading(true);
 
         try {
-            await axios.post('http://localhost:3000/register', {
-                email: email,
-                password: password,
-                username: username,
-            });
+            await axios.post('https://api.datavortex.nl/apkdash/users', {
+                    email: email,
+                    password: password,
+                    username: username,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': `${import.meta.env.VITE_API_KEY}`
+                    }
+                }
+            );
             navigate('/signin');
-        } catch(e) {
+        } catch (e) {
             console.error(e);
             toggleError(true);
         }
-
         toggleLoading(false);
     }
 
@@ -69,7 +74,8 @@ function Signup() {
                 </div>
                 {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
                 <div className="submit-container">
-                    <Button type='submit' disabled={loading} className='submit' onClick={handleSubmit}>Meld mij aan</Button>
+                    <Button type='submit' disabled={loading} className='submit-signup' onClick={handleSubmit}>Meld mij
+                        aan</Button>
                 </div>
                 <div className='signup-container'><p>Heb je al een account? Je kunt je <Link
                     to="/signin">hier</Link> inloggen.</p></div>
@@ -78,4 +84,5 @@ function Signup() {
         </div>
     );
 }
+
 export default Signup;

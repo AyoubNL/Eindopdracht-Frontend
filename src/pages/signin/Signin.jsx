@@ -59,7 +59,7 @@ function Signin() {
                     {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
                 </div>
                 <div className="submit-container">
-                    <Button className='submit' onClick={handleSubmit}>Aanmelden</Button>
+                    <Button type='submit' className='submit-signin' onClick={handleSubmit}>Aanmelden</Button>
                 </div>
                 <div className='signin-container'><p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p></div>
 

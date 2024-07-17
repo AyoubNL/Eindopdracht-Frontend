@@ -18,6 +18,11 @@ een API key aan te maken. Jij levert zelf jouw API key aan in de handleiding;
 ● Welke andere npm commando’s er nog beschikbaar zijn in deze applicatie en waar deze voor
 dienen
 
+Wanneer je dit doet voor jouw eigen projecten, voeg je in de README.md een begeleidende tekst toe waarin je de gebruiker
+instrueert een eigen .env bestand aan te maken en deze te vullen met de variabel-namen zoals beschreven in env.dist.
+Uiteraard benoem je ook het maken van een build, en waar de gebruiker aan deze variabelen kan komen.
+
+
 
 
 

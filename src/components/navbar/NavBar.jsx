@@ -3,6 +3,7 @@ import icon from '../../assets/logo-color.png'
 import {Link, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import Button from "../button/button.jsx";
 
 function NavBar() {
     const navigate = useNavigate()
@@ -22,24 +23,15 @@ function NavBar() {
             <div>
                 {isAuth.isAuth ?
 
-                    <button
-                        type="button"
-                        onClick={logout}
-                    >Log out</button>
+                    <Button type='button' onClick={logout}>Log out</Button>
 
                     :
                     <div>
-                        <button
-                            type="button"
-                            onClick={() => navigate('/signin')}
-                        >Inloggen
-                        </button>
 
-                        <button
-                            type="button"
-                            onClick={() => navigate('/signup')}
-                        >Registreren
-                        </button>
+                        <Button type='button' onClick={() => navigate('/signin')}>Inloggen</Button>
+
+                        <Button type='button' onClick={() => navigate('/signup')}>Registreren</Button>
+
                     </div>
                 }
                     </div>

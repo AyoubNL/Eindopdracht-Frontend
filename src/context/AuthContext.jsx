@@ -18,6 +18,16 @@ function AuthContextProvider({children}) {
 
 
 
+
+
+
+
+
+
+
+
+
+
     return (
         <AuthContext.Provider value={{isAuth, toggleIsAuth}}>
 
