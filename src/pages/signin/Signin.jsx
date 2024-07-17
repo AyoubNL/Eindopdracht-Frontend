@@ -56,12 +56,13 @@ function Signin() {
                         <input type="password" placeholder='Wachtwoord' id='password' name='password'
                                onChange={handleChange} value={login.password}/>
                     </div>
-                    {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
                 </div>
                 <div className="submit-container">
                     <Button type='submit' className='submit-signin' onClick={handleSubmit}>Aanmelden</Button>
                 </div>
-                <div className='signin-container'><p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p></div>
+                <div className='signin-container'>
+                    {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
+                    <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p></div>
 
             </form>
         </div>

@@ -30,14 +30,14 @@ function Signup() {
 
         try {
             await axios.post('https://api.datavortex.nl/apkdash/users', {
-                    email: email,
-                    password: password,
-                    username: username,
-                },{
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Api-Key': `${import.meta.env.VITE_API_KEY}`
-                }
+                    email: isAuth.user.email,
+                    password: isAuth.user.password,
+                    username: isAuth.user.username,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': `${import.meta.env.VITE_API_KEY}`
+                    }
                 }
             );
             navigate('/signin');
@@ -72,13 +72,16 @@ function Signup() {
                                value={isAuth.user.password} onChange={handleChange}/>
                     </div>
                 </div>
-                {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
                 <div className="submit-container">
                     <Button type='submit' disabled={loading} className='submit-signup' onClick={handleSubmit}>Meld mij
                         aan</Button>
                 </div>
-                <div className='signup-container'><p>Heb je al een account? Je kunt je <Link
-                    to="/signin">hier</Link> inloggen.</p></div>
+                <div className='signup-container'>
+
+                    {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
+
+                    <p>Heb je al een account? Je kunt je <Link
+                        to="/signin">hier</Link> inloggen.</p></div>
 
             </form>
         </div>
