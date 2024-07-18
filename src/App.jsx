@@ -21,10 +21,13 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/signin' element={<Signin/>}/>
-                <Route path='/fleet' element={isAuth.isAuth ? <Fleet /> : <Navigate to="/signin"/>}/>
+                <Route path='/fleet' element={<Fleet/>}/>
                 <Route path="*" element={<Notfound/>}/>
             </Routes>
             <Footer/>
+
+            {/*<Route path='/fleet' element={isAuth.isAuth ? <Fleet /> : <Navigate to="/signin"/>}/>*/}
+
         </>
     )
 }

@@ -29,7 +29,6 @@ function AuthContextProvider({children}) {
             },
             status: 'done',
         })
-
         navigate('/fleet')
     }
 
@@ -42,7 +41,6 @@ function AuthContextProvider({children}) {
         })
         console.log('Gebruiker is uitgelogd!')
         navigate('/')
-
     }
 
     return (

@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Signin() {
-    const {login,isAuth, toggleIsAuth} = useContext(AuthContext)
+    const {login} = useContext(AuthContext)
     const [error, toggleError] = useState(false);
     const [account, setAccount] = useState({
         username: '',
