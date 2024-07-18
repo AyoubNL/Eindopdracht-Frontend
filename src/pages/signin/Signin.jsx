@@ -1,41 +1,39 @@
 import './Signin.css'
 import password_icon from '../../assets/icons/password.png'
 import user_icon from '../../assets/icons/person.png'
-import {useState} from "react";
+import {useContext, useState} from "react";
 import axios from 'axios'
 import Button from "../../components/button/button.jsx";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Signin() {
-    const [login, setLogin] = useState({
+    const {login} = useContext(AuthContext)
+    const [error, toggleError] = useState(false);
+    const [account, setAccount] = useState({
         username: '',
         password: ''
     })
-    const [error, toggleError] = useState(false);
 
     function handleChange(e) {
         const changefieldName = e.target.name
 
-        setLogin({
-            ...login,
+        setAccount({
+            ...account,
             [changefieldName]: e.target.value
         })
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
         toggleError(false);
-
-        async function putData() {
-            try {
-                const send = await axios.post('http://localhost:3000/login', login)
-                login(send.data.accessToken)
-            } catch (e) {
-                console.error(e)
-                toggleError(true);
-            }
+        try {
+            const send = await axios.post('https://api.datavortex.nl/apkdash/users/authenticate', account)
+            login(send.data.jwt)
+        } catch (e) {
+            console.error(e)
+            toggleError(true);
         }
-        putData()
     }
 
     return (
@@ -49,12 +47,12 @@ function Signin() {
                     <div className="input">
                         <img src={user_icon} alt=""/>
                         <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
-                               onChange={handleChange} value={login.username}/>
+                               onChange={handleChange} value={account.username}/>
                     </div>
                     <div className="input">
                         <img src={password_icon} alt=""/>
                         <input type="password" placeholder='Wachtwoord' id='password' name='password'
-                               onChange={handleChange} value={login.password}/>
+                               onChange={handleChange} value={account.password}/>
                     </div>
                 </div>
                 <div className="submit-container">
