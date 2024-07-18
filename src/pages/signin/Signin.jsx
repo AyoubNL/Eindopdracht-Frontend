@@ -27,12 +27,11 @@ function Signin() {
     async function handleSubmit(e) {
         e.preventDefault()
         toggleError(false);
+
+
         try {
             const send = await axios.post('https://api.datavortex.nl/apkdash/users/authenticate', account)
             login(send.data.jwt)
-            toggleIsAuth({
-                ...isAuth,
-                isAuth: true})
         } catch (e) {
             console.error(e)
             toggleError(true);

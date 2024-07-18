@@ -21,6 +21,15 @@ function AuthContextProvider({children}) {
         localStorage.setItem('token', JWT)
         const decoded = jwtDecode(JWT)
         console.log(decoded)
+        toggleIsAuth({
+            ...isAuth,
+            isAuth: true,
+            user: {
+                username: decoded.sub
+            },
+            status: 'done',
+        })
+
         navigate('/fleet')
     }
 
