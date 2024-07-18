@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Signin() {
-    const {login} = useContext(AuthContext)
+    const {login,isAuth, toggleIsAuth} = useContext(AuthContext)
     const [error, toggleError] = useState(false);
     const [account, setAccount] = useState({
         username: '',
@@ -30,6 +30,9 @@ function Signin() {
         try {
             const send = await axios.post('https://api.datavortex.nl/apkdash/users/authenticate', account)
             login(send.data.jwt)
+            toggleIsAuth({
+                ...isAuth,
+                isAuth: true})
         } catch (e) {
             console.error(e)
             toggleError(true);
