@@ -6,6 +6,7 @@ import axios from "axios";
 import Modal from "../../components/modal/Modal.jsx";
 import convertTime from "../../helpers/convertTime.jsx";
 import Button from "../../components/button/button.jsx";
+import convertLicence from "../../helpers/convertLicence.jsx";
 
 function Fleet() {
     const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
@@ -30,7 +31,7 @@ function Fleet() {
 
 
         try {
-            const response = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${licence.replaceAll('-', '').toUpperCase()}`, {
+            const response = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${convertLicence(licence)}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-App-Token': `${import.meta.env.VITE_RDW_KEY}`
@@ -52,10 +53,10 @@ function Fleet() {
         return setLicence('')
     }
 
-    // let boo = licence.replace(/(\d{4})(\d{2})(\d{2})/g, '$3-$2-$1')
-    // let dateString = boo.replaceAll('-', '/')
-    //
-    // console.log(dateString)
+    let boo = licence.replace(/(\w{2}-\d{2}-\d{2})|(\d{2}-\d{2}-\w{2})|(\d{2}-\w{2}-\d{2})|(\w{2}-\d{2}-\w{2})|(\w{2}-\w{2}-\d{2})|(\d{2}-\w{2}-\w{2})|(\d{2}-\w{3}-\d{1})|(\d{1}-\w{3}-\d{2})|(\w{2}-\d{3}-\w{1})|(\w{1}-\d{3}-\w{2})|(\w{3}-\d{2}-\w{1})|(\d{1}-\w{2}-\d{3})/gm)
+    let dateString = boo.replaceAll('/', '-')
+
+    console.log(dateString)
 
     let listDetails = ''
     listDetails = Object.values(park).map((item, id) => {
