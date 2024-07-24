@@ -64,7 +64,7 @@ export default function Modal() {
                             </table>
                         </section>
                         <Button className='close-modal' onClick={toggleModal}>Sluiten</Button>
-                        <Button className='submit-modal' onClick={newCar}>Toevoegen</Button>
+                        <Button className='submit-modal' onClick={()=> {toggleModal(), newCar()}}>Toevoegen</Button>
                     </div>
                 </div>
             )}

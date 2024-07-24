@@ -5,14 +5,24 @@ import logo from "../../assets/logo-color.png"
 import axios from "axios";
 import Modal from "../../components/modal/Modal.jsx";
 import convertTime from "../../helpers/convertTime.jsx";
+import Button from "../../components/button/button.jsx";
 
 function Fleet() {
-    const {isAuth, setFleet, setList, park} = useContext(AuthContext)
+    const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
     const [licence, setLicence] = useState('')
 
 
     function handleChange(e) {
         setLicence(e.target.value)
+
+    }
+
+    function handleDelete(plate) {
+
+        const newPark = park.filter(park => park.plate !== plate)
+
+
+        setPark(newPark)
     }
 
     async function handleSubmit(e) {
@@ -36,10 +46,10 @@ function Fleet() {
                     audit: response.data[0].vervaldatum_apk_dt
                 }
             )
-
         } catch (e) {
             console.error(e)
         }
+        return setLicence('')
     }
 
     // let boo = licence.replace(/(\d{4})(\d{2})(\d{2})/g, '$3-$2-$1')
@@ -48,15 +58,16 @@ function Fleet() {
     // console.log(dateString)
 
     let listDetails = ''
-    listDetails = Object.values(park).map((item, index) => {
+    listDetails = Object.values(park).map((item, id) => {
             return (
-                <tr key={index}>
-                    <td>{index + 1}</td>
+                <tr key={id}>
                     <td>{item.plate}</td>
                     <td>{item.brand}</td>
                     <td>{item.model}</td>
                     <td>{convertTime(item.year)}</td>
                     <td>{convertTime(item.audit)}</td>
+                    <td><Button className='delete-button' type='button'
+                                onClick={() => handleDelete(item.plate)}>Verwijder</Button></td>
                 </tr>
             )
         }
@@ -88,12 +99,12 @@ function Fleet() {
                         <table>
                             <thead>
                             <tr>
-                                <th>Aantal</th>
                                 <th>Kenteken</th>
                                 <th>Merk</th>
                                 <th>Model</th>
                                 <th>Bouwjaar</th>
                                 <th>APK Vervaldatum</th>
+                                <th>Actie</th>
                             </tr>
                             </thead>
                             <tbody>
