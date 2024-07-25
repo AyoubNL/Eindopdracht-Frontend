@@ -1,28 +1,67 @@
 # APKdash
 
-Deelopdracht 4. Installatiehandleiding
-In de voorgaande opdrachten heb je jouw ontwikkelwerk afgerond. Om ervoor te zorgen dat ook andere
-ontwikkelaars jouw project kunnen gebruiken, is het belangrijk een installatiehandleiding te schrijven
-waarin beschreven wordt wat zij hiervoor nodig hebben. Je schrijft jouw installatiehandleiding voor een
-mede-developer, maar zorgt ervoor dat dit ook te volgen is wanneer deze persoon geen enkele ervaring
-heeft binnen het frontend-landschap.
+## Inhoudsopgave
 
-Het bevat:
-● Een inleiding met korte beschrijving van de functionaliteit van de applicatie en screenshot van
-de belangrijkste pagina van de applicatie.
-● Lijst van benodigdheden om de applicatie te kunnen runnen (zoals runtime environments, een
-API key of gegevens van een externe backend). Let op: je vraagt de nakijkende docent nooit zelf
-een API key aan te maken. Jij levert zelf jouw API key aan in de handleiding;
-● Een stappenplan met daarin installatie instructies.
-● Met welke gegevens er ingelogd kan worden indien er al accounts beschikbaar zijn.
-● Welke andere npm commando’s er nog beschikbaar zijn in deze applicatie en waar deze voor
-dienen
+- [Inleiding](#item-one)
+- [Benodigdheden](#item-two)
+- [De applicatie draaien](#item-three)
+- [Testaccount](#item-four)
 
-Wanneer je dit doet voor jouw eigen projecten, voeg je in de README.md een begeleidende tekst toe waarin je de gebruiker
-instrueert een eigen .env bestand aan te maken en deze te vullen met de variabel-namen zoals beschreven in env.dist.
-Uiteraard benoem je ook het maken van een build, en waar de gebruiker aan deze variabelen kan komen.
+<a id="item-one"></a>
+
+## Inleiding
+
+Met APKdash kan je voortaan op een snelle en overzichtelijke manier jouw voertuigadministratie bijhouden. Het rijden met
+een verlopen APK levert een boete op van 169 euro. Met deze applicatie heb je de uiterlijke keurdata van jouw wagenpark
+overal beschikbaar en zijn boetes verleden tijd. Als ingelogde gebruiker kan je op basis van het ingevoerde kenteken de
+volgende
+voertuiggegevens ophalen: merk, model, bouwjaar en APK-vervaldatum. De gegevens kan je makkelijk in een tabel weergeven.
+De voertuiggegevens zijn betrouwbaar omdat ze afkomstig zijn van de RDW (Rijksdienst voor het Wegverkeer).
+
+![screenshot](src/assets/screenshot.png)
+
+<a id="item-two"></a>
+
+## Benodigdheden
+
+APKdash draait op React versie 18 en maakt daarnaast gebruik van een aantal 'dependencies' zoals Axios, voor het
+binnenhalen van API-data. De jwt-decode is een handige tool voor het ontcijferen van de JWT-token. De applicatie draait
+op twee externe informatiebronnen. De eerste informatiebron is de database met gebruikers en de tweede informatiebron is
+de database met voertuiggegevens van Nederland. Voor het werkend krijgen van de applicatie moet er een env. bestand
+aangemaakt worden en dit bestand moet gevuld worden met de variabel-namen zoals beschreven in env.dist. map. Na het
+aanmaken van de API keys moet er een build gedraaid worden door de commando npm run build in de terminal te runnen. 
+
+Hieronder staan de twee API keys van bovenstaande informatiebronnen:
+VITE_API_KEY=apkdash:FvHuI1XWwbfWXBseFvR8
+VITE_RDW_KEY=2ORnyM5ZifXL8QrSXOUaq3nUV
+
+<a id="item-three"></a>
+## De applicatie draaien
+
+Door het project te clonen vanuit mijn Github pagina krijg je een identieke versie op jouw eigen computer. Je kan het
+project dan bekijken en naar eigen inzicht aanpassingen toevoegen. Het project kan je vinden
+op https://github.com/AyoubNL/Eindopdracht-Frontend installeer eerst de `node_modules` door het volgende
+commando in de terminal te runnen:
+
+```
+npm install
+```
+
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
+
+```
+npm run dev
+```
+
+of gebruik de WebStorm knop (npm start). Open [http://localhost:3000](http://localhost:3000/) om de pagina in de browser
+te bekijken.
 
 
+<a id="item-four"></a>
+## Testaccount
+
+Garage Speedy   
+Welkom2024!
 
 
 
