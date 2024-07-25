@@ -5,14 +5,16 @@ import {jwtDecode} from "jwt-decode";
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
-    const fleetFromStorage = localStorage.getItem('wagenpark')
+
     const [fleet, setFleet] = useState([])
     const [list, setList] = useState([{
         brand: 'merk', plate:
             'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
     }])
-    const [park, setPark] = useState(JSON.parse(fleetFromStorage))
 
+    const fleetFromStorage = JSON.parse(localStorage.getItem('wagenpark') || '[]')
+
+    const [park, setPark] = useState(fleetFromStorage)
 
     useEffect(() => {
         const token = localStorage.getItem('token')
