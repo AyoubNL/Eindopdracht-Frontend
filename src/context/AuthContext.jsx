@@ -1,14 +1,42 @@
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
+    const fleetFromStorage = localStorage.getItem('wagenpark')
     const [fleet, setFleet] = useState([])
-    const [list, setList] = useState([{brand: 'merk', plate:
-            'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'}])
-    const [park, setPark] = useState('')
+    const [list, setList] = useState([{
+        brand: 'merk', plate:
+            'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
+    }])
+    const [park, setPark] = useState(JSON.parse(fleetFromStorage))
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        localStorage.setItem('wagenpark', JSON.stringify(park))
+
+        if (token) {
+            const decoded = jwtDecode(token)
+
+            toggleIsAuth({
+                ...isAuth,
+                isAuth: true,
+                user: {
+                    username: decoded.sub,
+                },
+                status: 'done',
+            });
+        } else {
+            toggleIsAuth({
+                isAuth: false,
+                user: '',
+                status: 'done'
+            })
+        }
+    }, [park]);
 
 
     const navigate = useNavigate()
@@ -54,7 +82,8 @@ function AuthContextProvider({children}) {
         <AuthContext.Provider
             value={{isAuth, toggleIsAuth, login, logout, fleet, setFleet, list, setList, park, setPark}}>
 
-            {children}
+            {isAuth.status === 'done' ? children : <p>Loading...</p>}
+
 
         </AuthContext.Provider>
     );

@@ -1,5 +1,5 @@
 import './Fleet.css'
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import logo from "../../assets/logo-color.png"
 import axios from "axios";
@@ -11,17 +11,17 @@ import convertLicence from "../../helpers/convertLicence.jsx";
 function Fleet() {
     const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
     const [licence, setLicence] = useState('')
+    const [search, setSearch] = useState('')
+
 
 
     function handleChange(e) {
         setLicence(e.target.value)
-
     }
 
     function handleDelete(plate) {
 
         const newPark = park.filter(park => park.plate !== plate)
-
 
         setPark(newPark)
     }
@@ -53,13 +53,11 @@ function Fleet() {
         return setLicence('')
     }
 
-    let boo = licence.replace(/(\w{2}-\d{2}-\d{2})|(\d{2}-\d{2}-\w{2})|(\d{2}-\w{2}-\d{2})|(\w{2}-\d{2}-\w{2})|(\w{2}-\w{2}-\d{2})|(\d{2}-\w{2}-\w{2})|(\d{2}-\w{3}-\d{1})|(\d{1}-\w{3}-\d{2})|(\w{2}-\d{3}-\w{1})|(\w{1}-\d{3}-\w{2})|(\w{3}-\d{2}-\w{1})|(\d{1}-\w{2}-\d{3})/gm)
-    let dateString = boo.replaceAll('/', '-')
-
-    console.log(dateString)
 
     let listDetails = ''
-    listDetails = Object.values(park).map((item, id) => {
+    listDetails = Object.values(park).filter((unit) => {
+        return search === '' ? unit : unit.plate.includes(search)
+    }).map((item, id) => {
             return (
                 <tr key={id}>
                     <td>{item.plate}</td>
@@ -94,7 +92,8 @@ function Fleet() {
             <div className='table-container'>
                 <main className='table'>
                     <section className='table-header'>
-                        <h2>Wagenpark</h2>
+                        <h2>Wagenpark</h2> <input className='searchbox' type="text" placeholder='Zoek kenteken'
+                                                  onChange={(e) => setSearch(e.target.value)}/>
                     </section>
                     <section className='table-body'>
                         <table>

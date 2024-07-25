@@ -1,10 +1,9 @@
 
 function convertLicence(licence) {
 
+
+
     let newLicence = licence.replaceAll('-', '').toUpperCase()
-
-
-
 
     return (
 

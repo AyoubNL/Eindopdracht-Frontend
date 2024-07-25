@@ -83,7 +83,7 @@ main.table {
 
 .table-header {
     width: 100%;
-    height: 2.5%;
+    height: 5%;
     background-color: #FFF4;
     padding: .8rem 1rem;
     text-align: center;
@@ -119,17 +119,24 @@ table {
     width: 100%;
 }
 
-thead th{
+thead th {
     position: sticky;
     top: 0;
     left: 0;
     background-color: #d5d1defe;
 }
 
-tbody tr:nth-child(even){
+tbody tr:nth-child(even) {
     background-color: #0000000b;
 }
 
-tbody tr:hover{
+tbody tr:hover {
     background-color: #FFF6;
+}
+
+.searchbox {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    padding: 10px
 }
