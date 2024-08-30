@@ -1,4 +1,4 @@
-.wrapper {
+header {
     margin: 25px auto;
     width: 70%;
     display: flex;
@@ -15,7 +15,7 @@
     font-family: Merriweather, sans-serif;
 }
 
-.wrapper img {
+header img {
     float: right;
     max-width: 320px;
     margin-left: 100px;
@@ -60,16 +60,6 @@
     border-right: 20px solid #61777F;
 }
 
-#usp-section #usppara {
-    width: 40%;
-    font-size: 1rem;
-    color: #0d3b66;
-    text-align: center;
-    line-height: 1.5rem;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-}
-
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -78,7 +68,7 @@
     margin-top: 20px;
 }
 
-.cards .card {
+section {
     height: 280px;
     width: 380px;
     display: flex;
@@ -90,24 +80,7 @@
     border-radius: 10px;
 }
 
-.cards .card::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    background: #C8C8C8;
-    transform: rotate(0deg);
-    z-index: -1;
-}
-
-.cards .card:hover.card::before {
-    transform: rotate(10deg);
-}
-
-.cards .card h3 {
+section h3 {
     font-size: 1.4rem;
     color: black;
     margin-bottom: 10px;
