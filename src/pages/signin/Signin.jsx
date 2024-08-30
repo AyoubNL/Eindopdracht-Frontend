@@ -41,10 +41,10 @@ function Signin() {
 
     return (
         <div className='container'>
-            <div className="header">
-                <div className="text">Aanmelden</div>
-                <div className="underline"></div>
-            </div>
+            <header>
+                <span className="text">Aanmelden</span>
+                <span className="underline"></span>
+            </header>
             <form onSubmit={handleSubmit} autoComplete='off'>
                 <div className="inputs">
                     <div className="input">
