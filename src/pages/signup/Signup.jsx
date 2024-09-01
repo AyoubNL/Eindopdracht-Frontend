@@ -55,33 +55,32 @@ function Signup() {
                 <span className="underline"></span>
             </header>
             <form onSubmit={handleSubmit} autoComplete='off'>
-                <div className="inputs">
-                    <div className="input">
+                <div className="inputs-up">
+                    <div className="input-up">
                         <img src={user_icon} alt="afbeelding van persoon"/>
                         <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
                                value={isAuth.user.username} onChange={handleChange}/>
                     </div>
-                    <div className="input">
+                    <div className="input-up">
                         <img src={email_icon} alt="afbeelding van email"/>
                         <input type="email" placeholder='E-mailadres' id='email' name='email' value={isAuth.user.email}
                                onChange={handleChange}/>
                     </div>
-                    <div className="input">
+                    <div className="input-up">
                         <img src={password_icon} alt="afbeelding van wachtwoord"/>
                         <input type="password" placeholder='Wachtwoord' id='password' name='password'
                                value={isAuth.user.password} onChange={handleChange}/>
                     </div>
                 </div>
-                <div className="submit-container">
-                    <Button type='submit' disabled={loading} className='submit-signup' onClick={handleSubmit}>Meld mij
+                <article className="submit-container-up">
+                    <Button type='submit' disabled={loading} className='submit-signup-up' onClick={handleSubmit}>Meld mij
                         aan</Button>
-                </div>
-                <div className='signup-container'>
-
+                </article>
+                <article className='signup-container-up'>
                     {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
-
                     <p>Heb je al een account? Je kunt je <Link
-                        to="/signin">hier</Link> inloggen.</p></div>
+                        to="/signin">hier</Link> inloggen.</p>
+                </article>
 
             </form>
         </div>

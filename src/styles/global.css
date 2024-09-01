@@ -7,7 +7,22 @@
     padding: 0;
 }
 
-body {
+:root {
+    --font-black: #000000;
+    --font-white: #F8F8F8;
+    --usp-background:#F8F8F8;
+    --sign-box: #61777F;
+    --input-background: #eaeaea;
+    --error: #FF4500FF;
+    --licenceplate: #f4be04;
+    --table-background: #FFFB;
+}
+
+h1, h3, p {
+    font-family: Merriweather, sans-serif;
+}
+
+h2 {
     font-family: Poppings, sans-serif;
 }
 
@@ -20,4 +35,3 @@ a:active {
 a:hover {
     color: #ea7e1f;
 }
-

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 function Home() {
     return (<>
-            <header>
+            <div className="intro-text">
                 <div className="text-box">
                     <h1>APKdash</h1>
                     <p>Het runnen van een groot wagenpark vraagt om een goede administratie. Als ondernemer heb je
@@ -15,7 +15,7 @@ function Home() {
                         de deurmat voor een verlopen APK-keuring. <Link to='/signup'>Registreer je nu!</Link></p>
                 </div>
                 <img src={logo} alt="afbeelding logo"/>
-            </header>
+            </div>
             <div id='usp-section'>
                 <h2>Voordelen</h2>
                 <div className="cards">
