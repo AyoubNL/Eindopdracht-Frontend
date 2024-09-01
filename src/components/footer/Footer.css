@@ -1,6 +1,6 @@
 .footer {
     background-color: #61777F;
-    padding-block: 32px;
+    padding-block: 22px;
     bottom: 0;
     width: 100%;
 }
@@ -8,6 +8,6 @@
 .footer-copyright {
     font-size: 18px;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--font-white);
     text-align: center;
 }

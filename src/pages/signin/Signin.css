@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 50px;
-    background: #61777F;
+    background: var(--sign-box);
     padding-bottom: 20px;
     width: 600px;
 }
@@ -18,7 +17,7 @@ header {
 }
 
 .text {
-    color: #F8F8F8;
+    color: var(--font-white);;
     font-size: 33px;
     font-weight: 700;
 }
@@ -26,55 +25,64 @@ header {
 .underline {
     width: 61px;
     height: 6px;
-    background: #F8F8F8;
+    background: var(--font-white);
     border-radius: 9px;
 }
 
-.inputs {
+.inputs-in {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
-.input {
+.input-in {
     display: flex;
     align-items: center;
     margin: auto;
     width: 300px;
     height: 45px;
-    background: #eaeaea;
+    background: var(--input-background);
     border-radius: 6px;
 }
 
-.input img {
+.input-in img {
     margin: 0 30px;
 }
 
-.submit-container {
+.input-in input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 19px;
+}
+
+.submit-container-in {
     display: flex;
     gap: 30px;
     margin: 40px auto;
 }
 
-.submit-signin {
+.submit-signin-in {
     margin: auto;
     width: 180px;
     height: 39px;
     color: grey;
-    background: #F8F8F8;
+    background: var(--font-white);;
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
     cursor: pointer;
-    margin-bottom: 125px;
+    margin-bottom: 65px;
 }
 
 .error {
-    color: orangered;
+    color: var(--error);
 }
 
-.signin-container{
+.signin-container-in {
    margin-left: 120px;
 
 }

@@ -9,6 +9,10 @@ body.active-modal {
     font-size: 18px;
 }
 
+.modal {
+    z-index: 9999;
+}
+
 .modal, .overlay {
     width: 100vw;
     height: 100vh;

@@ -4,16 +4,14 @@
     display: flex;
 }
 
-.text-box-fleet h1 {
-    font-size: 42px;
-    font-family: Merriweather, sans-serif;
-    text-shadow: 1px 1px 1px black
+header h1 {
+    font-size: 39px;
+    text-shadow: 1px 1px 1px black;
 }
 
-.text-box-fleet h3 {
+header h3 {
     font-size: 16px;
     padding: 15px 15px 15px 0;
-    font-family: Merriweather, sans-serif;
 }
 
 .wrapper-fleet img {
@@ -28,7 +26,7 @@
     margin: auto;
     width: 300px;
     height: 45px;
-    background: #f4be04;
+    background: var(--licenceplate);
     border-radius: 6px;
 }
 
@@ -56,7 +54,6 @@
     border: none;
     padding: 0;
     background-color: transparent;
-    color: white;
 }
 
 .table-container {
@@ -66,14 +63,21 @@
     min-height: 100vh;
 }
 
-table, th, td {
-    padding: 1rem;
+table, th {
     border-collapse: collapse;
+    padding: 10px;
+    margin: 10px;
+    color: var(--font-black);
+}
+
+
+td {
+    padding: 10px;
 }
 
 main.table {
     width: 82vw;
-    height: 90vw;
+    height: 70vw;
     background-color: #FFF5;
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
@@ -84,7 +88,7 @@ main.table {
 .table-header {
     width: 100%;
     height: 5%;
-    background-color: #FFF4;
+    background-color: var(--table-background);
     padding: .8rem 1rem;
     text-align: center;
     font-size: 14px;
@@ -94,10 +98,10 @@ main.table {
 .table-body {
     width: 95%;
     max-height: calc(89% - 1.6rem);
-    background-color: #FFFB;
+    background-color: var(--table-background);
     margin: .8rem auto;
     border-radius: .6rem;
-    overflow: auto;
+
 }
 
 .table-body::-webkit-scrollbar {
@@ -134,9 +138,14 @@ tbody tr:hover {
     background-color: #FFF6;
 }
 
+tbody {
+    color: #000000;
+}
+
 .searchbox {
     position: absolute;
     top: 15px;
     right: 25px;
     padding: 10px
 }
+

@@ -11,8 +11,6 @@
 }
 
 nav {
-    background-color: #FFFFFF;
-    color: black;
     display: flex;
     padding: 0 32px;
     align-items: center;

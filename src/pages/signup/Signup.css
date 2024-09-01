@@ -2,13 +2,12 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 50px;
-    background: #61777F;
+    background: var(--sign-box);
     padding-bottom: 20px;
     width: 600px;
 }
 
-.header {
+header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +17,7 @@
 }
 
 .text {
-    color: #F8F8F8;
+    color: var(--font-white);
     font-size: 33px;
     font-weight: 700;
 }
@@ -26,66 +25,64 @@
 .underline {
     width: 61px;
     height: 6px;
-    background: #F8F8F8;
+    background: var(--font-white);
     border-radius: 9px;
 }
 
-.inputs {
+.inputs-up {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.input {
+.input-up {
     display: flex;
     align-items: center;
     margin: auto;
     width: 300px;
-    height: 32px;
-    background: #eaeaea;
+    height: 45px;
+    background: var(--input-background);
     border-radius: 6px;
 }
 
-.input img {
+.input-up img {
     margin: 0 30px;
 }
 
-.input input {
+.input-up input {
     height: 50px;
     width: 400px;
     background: transparent;
     border: none;
     outline: none;
-    color: #797979;
     font-size: 19px;
-
 }
 
-.submit-container {
+.submit-container-up {
     display: flex;
     gap: 30px;
     margin: 23px auto;
 }
 
-.submit-signup {
+.submit-signup-up {
     margin: auto;
     width: 180px;
     height: 39px;
     color: grey;
-    background: #F8F8F8;
+    background: var(--font-white);
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
     cursor: pointer;
-    margin-bottom: 83px;
+    margin-bottom: 45px;
 }
 
 .error {
-    color: orangered;
+    color: var(--error);
 }
 
-.signup-container{
+.signup-container-up{
     margin-left: 120px;
 
 }

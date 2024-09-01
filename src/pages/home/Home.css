@@ -1,4 +1,4 @@
-header {
+.intro-text {
     margin: 25px auto;
     width: 70%;
     display: flex;
@@ -6,16 +6,14 @@ header {
 
 .text-box h2 {
     font-size: 42px;
-    font-family: Poppings, sans-serif;
 }
 
 .text-box p {
     font-size: 16px;
     padding: 10px 0 0 0;
-    font-family: Merriweather, sans-serif;
 }
 
-header img {
+.intro-text img {
     float: right;
     max-width: 320px;
     margin-left: 100px;
@@ -24,7 +22,7 @@ header img {
 #usp-section {
     min-height: 425px;
     width: 100%;
-    background: #F8F8F8;
+    background: var(--usp-background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +30,7 @@ header img {
 }
 
 #usp-section h2 {
-    color: black;
+    color: var(--font-black);
     font-size: 2rem;
     margin-bottom: 20px;
     position: relative;
@@ -75,13 +73,12 @@ section {
     justify-content: flex-start;
     flex-direction: column;
     padding: 0 8%;
-    background: #F8F8F8;
     position: relative;
     border-radius: 10px;
 }
 
 section h3 {
     font-size: 1.4rem;
-    color: black;
+    color: var(--font-black);
     margin-bottom: 10px;
 }

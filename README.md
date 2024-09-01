@@ -31,7 +31,7 @@ de database met voertuiggegevens van Nederland. Voor het werkend krijgen van de 
 aangemaakt worden en dit bestand moet gevuld worden met de variabel-namen zoals beschreven in env.dist. map. Na het
 aanmaken van de API keys moet er een build gedraaid worden door de commando npm run build in de terminal te runnen. 
 
-Hieronder staan de twee API keys van bovenstaande informatiebronnen:
+Hieronder staan de twee API keys van bovenstaande informatiebronnen:                   
 VITE_API_KEY=apkdash:FvHuI1XWwbfWXBseFvR8
 VITE_RDW_KEY=2ORnyM5ZifXL8QrSXOUaq3nUV
 

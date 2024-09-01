@@ -13,8 +13,6 @@ function Fleet() {
     const [licence, setLicence] = useState('')
     const [search, setSearch] = useState('')
 
-
-
     function handleChange(e) {
         setLicence(e.target.value)
     }
@@ -75,7 +73,7 @@ function Fleet() {
 
     return (<>
             <div className="wrapper-fleet">
-                <div className="text-box-fleet">
+                <header>
                     <h1>Welkom {isAuth.user.username}</h1>
                     <h3>Voeg je voertuig toe aan het wagenpark</h3>
 
@@ -86,13 +84,14 @@ function Fleet() {
                             <Modal/>
                         </div>
                     </form>
-                </div>
+                </header>
                 <img src={logo} alt="afbeelding logo"/>
             </div>
             <div className='table-container'>
                 <main className='table'>
                     <section className='table-header'>
-                        <h2>Wagenpark</h2> <input className='searchbox' type="text" placeholder='Zoek kenteken'
+                        <h2>Wagenpark</h2>
+                        <input className='searchbox' type="text" placeholder='Zoek kenteken...'
                                                   onChange={(e) => setSearch(e.target.value)}/>
                     </section>
                     <section className='table-body'>

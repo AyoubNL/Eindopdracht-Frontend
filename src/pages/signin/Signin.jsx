@@ -46,24 +46,25 @@ function Signin() {
                 <span className="underline"></span>
             </header>
             <form onSubmit={handleSubmit} autoComplete='off'>
-                <div className="inputs">
-                    <div className="input">
+                <div className="inputs-in">
+                    <div className="input-in">
                         <img src={user_icon} alt="icoon van gebruiker"/>
                         <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
                                onChange={handleChange} value={account.username}/>
                     </div>
-                    <div className="input">
+                    <div className="input-in">
                         <img src={password_icon} alt="icoon van wachtwoord"/>
                         <input type="password" placeholder='Wachtwoord' id='password' name='password'
                                onChange={handleChange} value={account.password}/>
                     </div>
                 </div>
-                <article className="submit-container">
-                    <Button type='submit' className='submit-signin' onClick={handleSubmit}>Aanmelden</Button>
+                <article className="submit-container-in">
+                    <Button type='submit' className='submit-signin-in' onClick={handleSubmit}>Aanmelden</Button>
                 </article>
-                <div className='signin-container'>
+                <article className='signin-container-in'>
                     {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
-                    <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p></div>
+                    <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
+                </article>
             </form>
         </div>
     )
