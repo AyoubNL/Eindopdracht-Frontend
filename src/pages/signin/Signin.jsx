@@ -48,27 +48,26 @@ function Signin() {
             <form onSubmit={handleSubmit} autoComplete='off'>
                 <div className="inputs">
                     <div className="input">
-                        <img src={user_icon} alt=""/>
+                        <img src={user_icon} alt="icoon van gebruiker"/>
                         <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
                                onChange={handleChange} value={account.username}/>
                     </div>
                     <div className="input">
-                        <img src={password_icon} alt=""/>
+                        <img src={password_icon} alt="icoon van wachtwoord"/>
                         <input type="password" placeholder='Wachtwoord' id='password' name='password'
                                onChange={handleChange} value={account.password}/>
                     </div>
                 </div>
-                <div className="submit-container">
+                <article className="submit-container">
                     <Button type='submit' className='submit-signin' onClick={handleSubmit}>Aanmelden</Button>
-                </div>
+                </article>
                 <div className='signin-container'>
                     {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
                     <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p></div>
-
             </form>
         </div>
     )
-        ;
+
 }
 
 export default Signin;
