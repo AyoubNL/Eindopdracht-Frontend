@@ -5,12 +5,20 @@ import {jwtDecode} from "jwt-decode";
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
-
     const [fleet, setFleet] = useState([])
     const [list, setList] = useState([{
         brand: 'merk', plate:
             'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
     }])
+    const [isAuth, toggleIsAuth] = useState({
+        isAuth: false,
+        user: {
+            username: '',
+            email: '',
+            password: '',
+        },
+        status: 'pending'
+    });
 
     const fleetFromStorage = JSON.parse(localStorage.getItem('wagenpark') || '[]')
 
@@ -40,24 +48,11 @@ function AuthContextProvider({children}) {
         }
     }, [park]);
 
-
     const navigate = useNavigate()
 
-    const [isAuth, toggleIsAuth] = useState({
-        isAuth: false,
-        user: {
-            username: '',
-            email: '',
-            password: '',
-        },
-        status: 'pending'
-    });
-
     const login = (JWT) => {
-        console.log('Gebruiker is ingelogd!')
         localStorage.setItem('token', JWT)
         const decoded = jwtDecode(JWT)
-        console.log(decoded)
         toggleIsAuth({
             ...isAuth,
             isAuth: true,
@@ -76,7 +71,6 @@ function AuthContextProvider({children}) {
             user: '',
             status: 'done'
         })
-        console.log('Gebruiker is uitgelogd!')
         navigate('/')
     }
 
@@ -85,7 +79,6 @@ function AuthContextProvider({children}) {
             value={{isAuth, toggleIsAuth, login, logout, fleet, setFleet, list, setList, park, setPark}}>
 
             {isAuth.status === 'done' ? children : <p>Loading...</p>}
-
 
         </AuthContext.Provider>
     );

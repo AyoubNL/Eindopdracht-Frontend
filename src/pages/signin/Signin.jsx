@@ -6,18 +6,18 @@ import axios from 'axios'
 import Button from "../../components/button/button.jsx";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import Input from "../../components/input/Input.jsx";
 
 function Signin() {
-    const {login} = useContext(AuthContext)
     const [error, toggleError] = useState(false);
     const [account, setAccount] = useState({
         username: '',
         password: ''
     })
+    const {login} = useContext(AuthContext)
 
     function handleChange(e) {
         const changefieldName = e.target.name
-
 
         setAccount({
             ...account,
@@ -49,12 +49,12 @@ function Signin() {
                 <div className="inputs-in">
                     <div className="input-in">
                         <img src={user_icon} alt="icoon van gebruiker"/>
-                        <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
+                        <Input type='text' placeholder='Gebruikersnaam' id='username' name='username'
                                onChange={handleChange} value={account.username}/>
                     </div>
                     <div className="input-in">
                         <img src={password_icon} alt="icoon van wachtwoord"/>
-                        <input type="password" placeholder='Wachtwoord' id='password' name='password'
+                        <Input type="password" placeholder='Wachtwoord' id='password' name='password'
                                onChange={handleChange} value={account.password}/>
                     </div>
                 </div>

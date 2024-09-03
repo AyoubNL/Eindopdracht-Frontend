@@ -1,0 +1,94 @@
+.inputs-in {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-in {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 45px;
+    background: var(--input-background);
+    border-radius: 6px;
+}
+
+.input-in img {
+    margin: 0 30px;
+}
+
+.input-in input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 19px;
+}
+
+
+.inputs-up {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-up {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 45px;
+    background: var(--input-background);
+    border-radius: 6px;
+}
+
+.input-up img {
+    margin: 0 30px;
+}
+
+.input-up input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 19px;
+}
+
+
+.input-fleet {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 45px;
+    background: var(--licenceplate);
+    border-radius: 6px;
+}
+
+.input-fleet input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+    text-align: center;
+}
+
+.input-fleet input:focus {
+    text-transform: uppercase;
+}
+
+
+.magnifying-glass {
+    border-radius: 4px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}

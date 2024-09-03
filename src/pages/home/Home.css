@@ -58,14 +58,6 @@
     border-right: 20px solid #61777F;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    z-index: 9;
-    margin-top: 20px;
-}
-
 section {
     height: 280px;
     width: 380px;

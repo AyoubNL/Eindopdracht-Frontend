@@ -31,10 +31,7 @@ export default function Modal() {
     )
 
     const newCar = () => {
-        console.log('Kenteken toevoegen aan tabel')
-
         setPark((prevState) => [...prevState, list])
-
     }
 
     return (

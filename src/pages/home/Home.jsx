@@ -1,6 +1,7 @@
 import './Home.css'
 import logo from '../../assets/logo-home-color.png'
 import {Link} from "react-router-dom";
+import Card from "../../components/card/card.jsx";
 
 
 function Home() {
@@ -19,31 +20,17 @@ function Home() {
             <div id='usp-section'>
                 <h2>Voordelen</h2>
                 <div className="cards">
-                    <section>
-                        <article>
-                            <h3>Razendsnel</h3>
-                            <p>De APK-vervaldata van jouw wagenpark is binnen één seconde zichtbaar op het scherm.
+                    <Card h3='Razendsnel' p='De APK-vervaldata van jouw wagenpark is binnen één seconde zichtbaar op het scherm.
                                 Dat kun je heel makkelijk weten welk voertuig naar de autogarage moet. Met APKdash
-                                is dat een fluitje van een cent.
-                            </p>
-                        </article>
-                    </section>
-                    <section>
-                        <article>
-                            <h3>Betrouwbaar</h3>
-                            <p>Onze informatie komt rechtstreeks van de RDW voertuiggegevens database en is 100 procent
+                                is dat een fluitje van een cent.'/>
+                    <Card h3='Betrouwbaar' p='Onze informatie komt rechtstreeks van de RDW voertuiggegevens database en is 100 procent
                                 betrouwbaar.
                                 Met de gratis kentekencheck van APKdash heb je in één keer basisinformatie
-                                paraat. Om te beginnen het merk, model en de APK-vervaldatum.</p>
-                        </article>
-                    </section>
+                                paraat. Om te beginnen het merk, model en de APK-vervaldatum.'/>
                     <section>
-                        <article>
-                            <h3>Overzichtelijk</h3>
-                            <p>Heb je snel een compleet beeld van je wagenpark nodig? Dankzij onze portaal krijg je in
+                        <Card h3='Overzichtelijk' p='Heb je snel een compleet beeld van je wagenpark nodig? Dankzij onze portaal krijg je in
                                 één oogopslag de komende APK keuringen te zien. Het aanhouden van een rommelige
-                                administratie is verleden tijd.</p>
-                        </article>
+                                administratie is verleden tijd..'/>
                     </section>
                 </div>
             </div>
