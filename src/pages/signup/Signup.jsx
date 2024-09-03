@@ -7,6 +7,7 @@ import Button from "../../components/button/button.jsx";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import axios from "axios";
+import Input from "../../components/input/Input.jsx";
 
 function Signup() {
     const {isAuth, toggleIsAuth} = useContext(AuthContext)
@@ -58,22 +59,24 @@ function Signup() {
                 <div className="inputs-up">
                     <div className="input-up">
                         <img src={user_icon} alt="afbeelding van persoon"/>
-                        <input type="text" placeholder='Gebruikersnaam' id='username' name='username'
+                        <Input type="text" placeholder='Gebruikersnaam' id='username' name='username'
                                value={isAuth.user.username} onChange={handleChange}/>
                     </div>
                     <div className="input-up">
                         <img src={email_icon} alt="afbeelding van email"/>
-                        <input type="email" placeholder='E-mailadres' id='email' name='email' value={isAuth.user.email}
+                        <Input type="email" placeholder='E-mailadres' id='email' name='email' value={isAuth.user.email}
                                onChange={handleChange}/>
+
                     </div>
                     <div className="input-up">
                         <img src={password_icon} alt="afbeelding van wachtwoord"/>
-                        <input type="password" placeholder='Wachtwoord' id='password' name='password'
+                        <Input type="password" placeholder='Wachtwoord' id='password' name='password'
                                value={isAuth.user.password} onChange={handleChange}/>
                     </div>
                 </div>
                 <article className="submit-container-up">
-                    <Button type='submit' disabled={loading} className='submit-signup-up' onClick={handleSubmit}>Meld mij
+                    <Button type='submit' disabled={loading} className='submit-signup-up' onClick={handleSubmit}>Meld
+                        mij
                         aan</Button>
                 </article>
                 <article className='signup-container-up'>

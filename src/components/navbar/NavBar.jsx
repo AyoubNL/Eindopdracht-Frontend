@@ -22,21 +22,19 @@ function NavBar() {
 
             <div>
                 {isAuth.isAuth ?
-
-                    <Button type='button' onClick={logout}>Log out</Button>
-
+                    <div>
+                        <Button type='button' onClick={() => navigate('/fleet')}>Wagenpark</Button>
+                        <Button type='button' onClick={logout}>Log out</Button>
+                    </div>
                     :
                     <div>
-
                         <Button type='button' onClick={() => navigate('/signin')}>Inloggen</Button>
-
                         <Button type='button' onClick={() => navigate('/signup')}>Registreren</Button>
-
                     </div>
                 }
-                    </div>
-                    </nav>
-                    );
-                }
+            </div>
+        </nav>
+    );
+}
 
 export default NavBar;

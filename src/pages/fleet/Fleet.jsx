@@ -7,20 +7,19 @@ import Modal from "../../components/modal/Modal.jsx";
 import convertTime from "../../helpers/convertTime.jsx";
 import Button from "../../components/button/button.jsx";
 import convertLicence from "../../helpers/convertLicence.jsx";
+import Input from "../../components/input/Input.jsx";
 
 function Fleet() {
-    const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
     const [licence, setLicence] = useState('')
     const [search, setSearch] = useState('')
+    const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
 
     function handleChange(e) {
         setLicence(e.target.value)
     }
 
     function handleDelete(plate) {
-
         const newPark = park.filter(park => park.plate !== plate)
-
         setPark(newPark)
     }
 
@@ -51,7 +50,6 @@ function Fleet() {
         return setLicence('')
     }
 
-
     let listDetails = ''
     listDetails = Object.values(park).filter((unit) => {
         return search === '' ? unit : unit.plate.includes(search)
@@ -79,7 +77,7 @@ function Fleet() {
 
                     <form onSubmit={handleSubmit}>
                         <div className="input-fleet">
-                            <input type="text" placeholder='KENTEKEN' id='licence' name='licence' maxLength="8"
+                            <Input type="text" placeholder='KENTEKEN' id='licence' name='licence' maxLength="8"
                                    autoComplete="off" required="" onChange={handleChange} value={licence}/>
                             <Modal/>
                         </div>
@@ -91,8 +89,8 @@ function Fleet() {
                 <main className='table'>
                     <section className='table-header'>
                         <h2>Wagenpark</h2>
-                        <input className='searchbox' type="text" placeholder='Zoek kenteken...'
-                                                  onChange={(e) => setSearch(e.target.value)}/>
+                        <Input className='searchbox' type="text" placeholder='Zoek kenteken...'
+                               onChange={(e) => setSearch(e.target.value)}/>
                     </section>
                     <section className='table-body'>
                         <table>
