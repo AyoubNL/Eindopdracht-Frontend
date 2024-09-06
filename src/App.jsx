@@ -9,6 +9,7 @@ import NavBar from "./components/navbar/NavBar.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import {useContext} from "react";
 import {AuthContext} from "./context/AuthContext.jsx";
+import Sellcheck from "./pages/sellcheck/Sellcheck.jsx";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/signin' element={<Signin/>}/>
                 <Route path='/fleet' element={isAuth.isAuth ? <Fleet /> : <Navigate to="/signin"/>}/>
+                <Route path='/sellcheck' element={isAuth.isAuth ? <Sellcheck /> : <Navigate to="/signin"/>}/>
                 <Route path="*" element={<Notfound/>}/>
             </Routes>
             <Footer/>

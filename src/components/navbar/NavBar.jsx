@@ -23,6 +23,7 @@ function NavBar() {
             <div>
                 {isAuth.isAuth ?
                     <div>
+                        <Button type='button' onClick={() => navigate('/sellcheck')}>Verkoopcheck</Button>
                         <Button type='button' onClick={() => navigate('/fleet')}>Wagenpark</Button>
                         <Button type='button' onClick={logout}>Log out</Button>
                     </div>

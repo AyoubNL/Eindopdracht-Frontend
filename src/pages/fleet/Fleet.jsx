@@ -62,6 +62,8 @@ function Fleet() {
                     <td>{convertTime(item.year)}</td>
                     <td>{convertTime(item.audit)}</td>
                     <td><Button className='delete-button' type='button'
+                                onClick={() => navigate('/signin')}>Verkoopcheck</Button></td>
+                    <td><Button className='delete-button' type='button'
                                 onClick={() => handleDelete(item.plate)}>Verwijder</Button></td>
                 </tr>
             )
@@ -101,6 +103,7 @@ function Fleet() {
                                 <th>Model</th>
                                 <th>Bouwjaar</th>
                                 <th>APK Vervaldatum</th>
+                                <th>Verkoopcheck</th>
                                 <th>Actie</th>
                             </tr>
                             </thead>
