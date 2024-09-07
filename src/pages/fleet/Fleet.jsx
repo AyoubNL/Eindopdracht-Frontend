@@ -8,6 +8,7 @@ import convertTime from "../../helpers/convertTime.jsx";
 import Button from "../../components/button/button.jsx";
 import convertLicence from "../../helpers/convertLicence.jsx";
 import Input from "../../components/input/Input.jsx";
+import handleCheck from "../sellcheck/Sellcheck.jsx";
 
 function Fleet() {
     const [licence, setLicence] = useState('')
@@ -35,7 +36,6 @@ function Fleet() {
                 }
             })
             setFleet(response.data)
-
             setList({
                     plate: response.data[0].kenteken,
                     brand: response.data[0].merk,
@@ -44,6 +44,7 @@ function Fleet() {
                     audit: response.data[0].vervaldatum_apk_dt
                 }
             )
+
         } catch (e) {
             console.error(e)
         }
@@ -61,8 +62,8 @@ function Fleet() {
                     <td>{item.model}</td>
                     <td>{convertTime(item.year)}</td>
                     <td>{convertTime(item.audit)}</td>
-                    <td><Button className='delete-button' type='button'
-                                onClick={() => navigate('/signin')}>Verkoopcheck</Button></td>
+                    <td><Button className='sellcheck-button' type='button'
+                                onClick={() => handleCheck()}>Verkoopcheck</Button></td>
                     <td><Button className='delete-button' type='button'
                                 onClick={() => handleDelete(item.plate)}>Verwijder</Button></td>
                 </tr>
