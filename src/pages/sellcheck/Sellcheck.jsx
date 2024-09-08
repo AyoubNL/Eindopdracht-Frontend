@@ -1,13 +1,13 @@
 import './Sellcheck.css'
 import axios from "axios";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
-import {useNavigate} from "react-router-dom";
-import Button from "../../components/button/button.jsx";
 import notStolen from "../../helpers/notStolen.jsx";
 import assessment from "../../helpers/assessment.jsx";
 import insurance from "../../helpers/insurance.jsx";
 import recall from "../../helpers/recall.jsx";
+import {useParams} from "react-router-dom";
+
 
 
 function Sellcheck() {
@@ -18,16 +18,13 @@ function Sellcheck() {
         insurance: 'verzekerd',
         recall: 'openstaande terugroepactie',
     }])
-    const navigate = useNavigate()
-    const {list} = useContext(AuthContext)
 
-    async function handleCheck(e) {
+    const {id} = useParams();
 
-        // navigate('/sellcheck')
-        // e.preventDefault();
-
+    useEffect(() => {
+        console.log(id)
         try {
-            const check = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${list.plate}`, {
+            const check = axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-App-Token': `${import.meta.env.VITE_RDW_KEY}`
@@ -44,25 +41,28 @@ function Sellcheck() {
         } catch (e) {
             console.error(e)
         }
-    }
+
+    }, [sell]);
 
     return (
         <>
             <div className="wrapper-check">
-                <h1>Verkoopcheck</h1>
-                <h2>{list.plate}</h2>
-
-                <p>Dit voertuig heeft {assessment(sell.assessment)} kilometerstand, de laatste registratie dateert uit het jaar {sell.assessmentyear}.
-                    Uit de meest recente gegevens blijkt dat deze auto {notStolen(sell.notstolen)} gestolen is.
-                    De fabrikant heeft {recall(sell.recall)} terugroepactie voor dit voertuig, en je  bent {insurance(sell.insurance)}.</p>
-
-
-                <Button className='sellcheck-button' type='button'
-                        onClick={() => handleCheck()}>Verkoopcheck</Button>
+                {Object.keys(sell).length > 0 &&
+                    <article className="search-result-box">
+                            <span className="title-container">
+                             <h1>Verkoopcheck {id}</h1>
+                            </span>
+                        <p>Dit voertuig heeft {assessment(sell.assessment)} kilometerstand, en de laatste registratie
+                            dateert uit het jaar {sell.assessmentyear}.</p>
+                        <p>Uit de meest recente gegevens blijkt dat deze auto {notStolen(sell.notstolen)} gestolen
+                            is.</p>
+                        <p>De fabrikant heeft {recall(sell.recall)} terugroepactie voor dit voertuig, en je
+                            bent {insurance(sell.insurance)}.</p>
+                    </article>
+                }
             </div>
         </>
     );
-
 }
 
 export default Sellcheck;

@@ -1,12 +1,11 @@
 function Assessment(assessment)  {
 
-    assessment.toLowerCase()
 
     if(assessment === "geen"){
-        return "geen beoordeelde"
+        return "geen betrouwbare"
     }
     else{
-        return "een logisch beoordeelde"
+        return "een betrouwbare"
     }
 
 }

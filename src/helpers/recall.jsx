@@ -1,7 +1,5 @@
-
 function Recall(recall) {
 
-    recall.toLowerCase()
 
     if(recall === "Nee"){
         return "geen"

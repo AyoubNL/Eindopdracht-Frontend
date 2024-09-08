@@ -23,7 +23,7 @@ function App() {
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/signin' element={<Signin/>}/>
                 <Route path='/fleet' element={isAuth.isAuth ? <Fleet /> : <Navigate to="/signin"/>}/>
-                <Route path='/sellcheck' element={isAuth.isAuth ? <Sellcheck/> : <Navigate to="/signin"/>}/>
+                <Route path='/sellcheck/:id' element={isAuth.isAuth ? <Sellcheck/> : <Navigate to="/signin"/>}/>
                 <Route path="*" element={<Notfound/>}/>
             </Routes>
             <Footer/>
