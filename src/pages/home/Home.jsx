@@ -24,13 +24,11 @@ function Home() {
                                 Dat kun je heel makkelijk weten welk voertuig naar de autogarage moet. Met APKdash
                                 is dat een fluitje van een cent.'/>
                     <Card h3='Betrouwbaar' p='Onze informatie komt rechtstreeks van de RDW voertuiggegevens database en is 100 procent
-                                betrouwbaar.
-                                Met de gratis kentekencheck van APKdash heb je in één keer basisinformatie
+                                betrouwbaar. Met de gratis kentekencheck van APKdash heb je in één keer basisinformatie
                                 paraat. Om te beginnen het merk, model en de APK-vervaldatum.'/>
                     <section>
                         <Card h3='Overzichtelijk' p='Heb je snel een compleet beeld van je wagenpark nodig? Dankzij onze portaal krijg je in
-                                één oogopslag de komende APK keuringen te zien. Het aanhouden van een rommelige
-                                administratie is verleden tijd..'/>
+                                één oogopslag de komende APK keuringen te zien. Het aanhouden van een rommelige administratie is verleden tijd.'/>
                     </section>
                 </div>
             </div>

@@ -7,8 +7,7 @@ export const AuthContext = createContext({});
 function AuthContextProvider({children}) {
     const [fleet, setFleet] = useState([])
     const [list, setList] = useState([{
-        brand: 'merk', plate:
-            'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
+        brand: 'merk', plate: 'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
     }])
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,

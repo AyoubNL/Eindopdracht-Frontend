@@ -14,9 +14,6 @@ function NavBar() {
             <Link to="/">
           <span className="icon-container">
             <img src={icon} alt="icon"/>
-            <h3>
-              APKdash
-            </h3>
           </span>
             </Link>
 

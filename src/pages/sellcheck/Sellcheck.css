@@ -1,0 +1,28 @@
+.wrapper-check {
+    margin: 32px auto;
+    width: 70%;
+    display: flex;
+}
+
+.search-result-box {
+    border-radius: 8px;
+    box-shadow: .25rem .5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 72px 0;
+}
+
+.search-result-box p {
+    padding: 8px 0;
+}
+
+.merk {
+    width: 40px;
+    margin-right: 16px;
+}
+
+.title-container {
+    border-bottom: 1px solid #ededed;
+    display: flex;
+    align-items: baseline;
+    margin: 0 0 12px 0;
+}

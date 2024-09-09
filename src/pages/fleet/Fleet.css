@@ -20,9 +20,6 @@ header h3 {
     margin-left: 100px;
 }
 
-
-
-
 .input-fleet img {
     margin: 0 30px;
 }
@@ -42,7 +39,7 @@ table, th {
 }
 
 td {
-    padding: 10px;
+    padding: 6px;
 }
 
 main.table {
@@ -116,6 +113,9 @@ tbody {
     position: absolute;
     top: 15px;
     right: 25px;
-    padding: 10px
+    padding: 10px;
 }
 
+.delete-button, .sellcheck-button {
+    padding: 6px;
+}

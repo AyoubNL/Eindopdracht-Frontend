@@ -8,11 +8,16 @@ import convertTime from "../../helpers/convertTime.jsx";
 import Button from "../../components/button/button.jsx";
 import convertLicence from "../../helpers/convertLicence.jsx";
 import Input from "../../components/input/Input.jsx";
+import {useNavigate} from "react-router-dom";
+
 
 function Fleet() {
     const [licence, setLicence] = useState('')
     const [search, setSearch] = useState('')
     const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
 
     function handleChange(e) {
         setLicence(e.target.value)
@@ -26,7 +31,6 @@ function Fleet() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-
         try {
             const response = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${convertLicence(licence)}`, {
                 headers: {
@@ -35,7 +39,6 @@ function Fleet() {
                 }
             })
             setFleet(response.data)
-
             setList({
                     plate: response.data[0].kenteken,
                     brand: response.data[0].merk,
@@ -44,6 +47,7 @@ function Fleet() {
                     audit: response.data[0].vervaldatum_apk_dt
                 }
             )
+
         } catch (e) {
             console.error(e)
         }
@@ -61,6 +65,9 @@ function Fleet() {
                     <td>{item.model}</td>
                     <td>{convertTime(item.year)}</td>
                     <td>{convertTime(item.audit)}</td>
+                    <td><Button className='sellcheck-button' type='button'
+                                onClick={() => {navigate(`/sellcheck/${item.plate}`)}}>Verkoopcheck</Button>
+                    </td>
                     <td><Button className='delete-button' type='button'
                                 onClick={() => handleDelete(item.plate)}>Verwijder</Button></td>
                 </tr>
@@ -101,6 +108,7 @@ function Fleet() {
                                 <th>Model</th>
                                 <th>Bouwjaar</th>
                                 <th>APK Vervaldatum</th>
+                                <th>Verkoopcheck</th>
                                 <th>Actie</th>
                             </tr>
                             </thead>
@@ -109,11 +117,8 @@ function Fleet() {
                             </tbody>
                         </table>
                     </section>
-
                 </main>
-
             </div>
-
         </>
 
     );
