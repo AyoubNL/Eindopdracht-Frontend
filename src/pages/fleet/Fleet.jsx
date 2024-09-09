@@ -8,7 +8,7 @@ import convertTime from "../../helpers/convertTime.jsx";
 import Button from "../../components/button/button.jsx";
 import convertLicence from "../../helpers/convertLicence.jsx";
 import Input from "../../components/input/Input.jsx";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 function Fleet() {
@@ -65,14 +65,8 @@ function Fleet() {
                     <td>{item.model}</td>
                     <td>{convertTime(item.year)}</td>
                     <td>{convertTime(item.audit)}</td>
-                    <td>
-
-
-
-                        <Button className='sellcheck-button' type='button'
+                    <td><Button className='sellcheck-button' type='button'
                                 onClick={() => {navigate(`/sellcheck/${item.plate}`)}}>Verkoopcheck</Button>
-
-
                     </td>
                     <td><Button className='delete-button' type='button'
                                 onClick={() => handleDelete(item.plate)}>Verwijder</Button></td>
