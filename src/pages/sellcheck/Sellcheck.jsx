@@ -19,11 +19,13 @@ function Sellcheck() {
         brand: 'merk',
         model: 'model',
     }])
+    const [loading, toggleLoading] = useState(false);
 
     const {id} = useParams();
 
     useEffect(() => {
    async function handleCheck() {
+       toggleLoading(true);
 
             try {
                 const check = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${id}`, {
@@ -45,9 +47,11 @@ function Sellcheck() {
             } catch (e) {
                 console.error(e)
             }
-
+       toggleLoading(false);
         }
+
         handleCheck()
+
     }, []);
 
     return (
@@ -55,6 +59,7 @@ function Sellcheck() {
             <div className="wrapper-check">
                 {Object.keys(sell).length > 0 &&
                     <article className="search-result-box">
+                        {loading && <p className='error'>Een moment geduld a.u.b</p> }
                             <span className="title-container">
                              <h1>Verkoopcheck {uppercase(sell.brand, sell.model)}</h1>
                             </span>
@@ -65,9 +70,7 @@ function Sellcheck() {
                             is.</p>
                         <p>De fabrikant heeft {recall(sell.recall)} terugroepactie voor dit voertuig, en je
                             bent {insurance(sell.insurance)}.</p>
-                    </article>
-
-                }
+                    </article>}
             </div>
         </>
     );

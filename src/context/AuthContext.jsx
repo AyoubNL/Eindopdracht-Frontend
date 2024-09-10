@@ -5,6 +5,7 @@ import {jwtDecode} from "jwt-decode";
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
+    const [licence, setLicence] = useState('')
     const [fleet, setFleet] = useState([])
     const [list, setList] = useState([{
         brand: 'merk', plate: 'kenteken', model: 'model', year: 'bouwjaar', audit: 'APK'
@@ -75,7 +76,7 @@ function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider
-            value={{isAuth, toggleIsAuth, login, logout, fleet, setFleet, list, setList, park, setPark}}>
+            value={{licence,setLicence, isAuth, toggleIsAuth, login, logout, fleet, setFleet, list, setList, park, setPark}}>
 
             {isAuth.status === 'done' ? children : <p>Loading...</p>}
 
