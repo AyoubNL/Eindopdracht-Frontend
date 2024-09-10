@@ -6,7 +6,7 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 
 export default function Modal() {
     const [modal, setModal] = useState(false);
-    const {fleet, setPark, list} = useContext(AuthContext)
+    const {fleet, setPark, list,licence} = useContext(AuthContext)
 
     const toggleModal = () => {
         setModal(!modal);
@@ -34,18 +34,24 @@ export default function Modal() {
         setPark((prevState) => [...prevState, list])
     }
 
+
     return (
         <>
-            <Button onClick={() => {
+            <Button disabled={!licence} onClick={() => {
                 toggleModal()
             }} className='magnifying-glass'><img src={magnifying_glass} alt="afbeelding zoekknop"/></Button>
+
 
             {modal && (
                 <div className="modal">
                     <div onClick={() => toggleModal} className="overlay"></div>
                     <div className="modal-content">
-                        <h4>Kloppen de kentekengegevens?</h4>
+
+                        {fleet.length > 0 ?  <h4>Kloppen de kentekengegevens?</h4> : <h4></h4>}
+
+                        {fleet.length > 0 ?
                         <section className='table-body'>
+
                             <table>
                                 <thead>
                                 <tr>
@@ -60,8 +66,11 @@ export default function Modal() {
 
                             </table>
                         </section>
+                            : <p className="error-licence">Het ingevoerde kenteken is onbekend. Probeer het opnieuw.</p>}
+                        {fleet.length > 0 ?  <Button className='submit-modal' onClick={()=> {toggleModal(), newCar()}}>Toevoegen</Button> : ""}
+
                         <Button className='close-modal' onClick={toggleModal}>Sluiten</Button>
-                        <Button className='submit-modal' onClick={()=> {toggleModal(), newCar()}}>Toevoegen</Button>
+
                     </div>
                 </div>
             )}

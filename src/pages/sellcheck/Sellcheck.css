@@ -26,3 +26,9 @@
     align-items: baseline;
     margin: 0 0 12px 0;
 }
+
+.loading-check{
+    margin: 32px auto;
+    width: 70%;
+    display: flex;
+}

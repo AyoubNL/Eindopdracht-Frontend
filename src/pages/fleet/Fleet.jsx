@@ -10,16 +10,14 @@ import convertLicence from "../../helpers/convertLicence.jsx";
 import Input from "../../components/input/Input.jsx";
 import {useNavigate} from "react-router-dom";
 
-
 function Fleet() {
-    const [licence, setLicence] = useState('')
     const [search, setSearch] = useState('')
-    const {isAuth, setFleet, setList, park, setPark} = useContext(AuthContext)
+    const {isAuth, setFleet, setList, park, setPark, licence, setLicence} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
-
     function handleChange(e) {
+
         setLicence(e.target.value)
     }
 
