@@ -1,5 +1,5 @@
 .wrapper-check {
-    margin: 32px auto;
+    margin: 22px auto;
     width: 70%;
     display: flex;
 }
@@ -12,11 +12,11 @@
 }
 
 .search-result-box p {
-    padding: 8px 0;
+    padding: 3px 0;
 }
 
 .merk {
-    width: 40px;
+    width: 34px;
     margin-right: 16px;
 }
 
@@ -27,8 +27,19 @@
     margin: 0 0 12px 0;
 }
 
-.loading-check{
+.loading-check {
     margin: 32px auto;
     width: 70%;
     display: flex;
+}
+
+.car {
+    width: 300px;
+}
+
+.car-box {
+    position: relative;
+    top: 100px;
+    right: 2px;
+    margin: 0 0 0 40px;
 }
