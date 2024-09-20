@@ -73,7 +73,6 @@ function AuthContextProvider({children}) {
         })
         navigate('/')
     }
-
     return (
         <AuthContext.Provider
             value={{licence,setLicence, isAuth, toggleIsAuth, login, logout, fleet, setFleet, list, setList, park, setPark}}>

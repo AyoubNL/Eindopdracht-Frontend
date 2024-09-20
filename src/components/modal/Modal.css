@@ -58,3 +58,7 @@ body.active-modal {
     color: var(--error);
     padding: 30px;
 }
+
+button:disabled{
+    cursor: not-allowed;
+}

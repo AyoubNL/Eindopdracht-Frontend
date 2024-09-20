@@ -60,7 +60,7 @@
 
 section {
     height: 280px;
-    width: 380px;
+    width: 280px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
