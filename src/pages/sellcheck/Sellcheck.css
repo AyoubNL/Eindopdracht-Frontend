@@ -1,23 +1,19 @@
 .wrapper-check {
-    margin: 22px auto;
+    margin: auto;
     width: 70%;
     display: flex;
+    padding: 0 0 6px 0;
 }
 
 .search-result-box {
     border-radius: 8px;
     box-shadow: .25rem .5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    margin: 72px 0;
+    padding: 15px;
+    margin: 56px 0;
 }
 
 .search-result-box p {
     padding: 3px 0;
-}
-
-.merk {
-    width: 34px;
-    margin-right: 16px;
 }
 
 .title-container {
@@ -25,12 +21,6 @@
     display: flex;
     align-items: baseline;
     margin: 0 0 12px 0;
-}
-
-.loading-check {
-    margin: 32px auto;
-    width: 70%;
-    display: flex;
 }
 
 .car {
@@ -41,5 +31,9 @@
     position: relative;
     top: 100px;
     right: 2px;
-    margin: 0 0 0 40px;
+    margin: 0 0 35px 30px;
+}
+
+.no-image {
+    width: 175px;
 }

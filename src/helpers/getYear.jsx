@@ -1,7 +1,7 @@
 function getYear(build) {
 
     const d = new Date(build);
-    let year = d?.getFullYear();
+    let year = d.getFullYear();
 
 
     return year

@@ -32,6 +32,7 @@ function Fleet() {
         try {
             const response = await axios.get(`https://opendata.rdw.nl/resource/m9d7-ebf2.json?kenteken=${convertLicence(licence)}`, {
                 headers: {
+                    'Content-Type': 'application/json',
                     'X-App-Token': `${import.meta.env.VITE_RDW_KEY}`
                 }
             })

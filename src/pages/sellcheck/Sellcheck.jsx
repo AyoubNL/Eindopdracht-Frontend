@@ -10,6 +10,7 @@ import uppercase from "../../helpers/uppercase.jsx";
 import countDays from "../../helpers/countDays.jsx";
 import getYear from "../../helpers/getYear.jsx";
 import getBrandName from "../../helpers/getBrandName.jsx";
+import noimage from '../../assets/no-image.png'
 
 function Sellcheck() {
     const [sell, setSell] = useState([{
@@ -30,6 +31,7 @@ function Sellcheck() {
     const {id} = useParams();
 
     useEffect(() => {
+
         async function handleCheck() {
             toggleLoading(true);
 
@@ -60,52 +62,60 @@ function Sellcheck() {
 
 
 
-
             toggleLoading(false);
+
+
         }
 
-
         handleCheck()
+
+
 
     }, []);
 
 
-    async function carPic() {
+    useEffect(() => {
+        async function carId() {
 
-        try {
-            const idInfo = await axios.get(`https://api.fuelapi.com/v1/json/vehicles/?year=${getYear(sell.build)}&model=${getBrandName(sell.model)}&make=${sell.brand}&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1`,
-            )
-            setCar(idInfo.data[0].id)
-            console.log(idInfo.data[0].id)
+            try {
+                const idInfo = await axios.get(`https://api.fuelapi.com/v1/json/vehicles/?year=${getYear(sell.build)}&model=${getBrandName(sell.model)}&make=${sell.brand}&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1`,
+                )
+                setCar(idInfo.data[0].id)
+                console.log(idInfo.data[0].id)
 
-        } catch (e) {
-            console.error(e)
+            } catch (e) {
+                console.error(e)
+            }
+
         }
+        carId()
+    }, [sell]);
 
-    }
+    useEffect(() => {
 
+        async function carPhoto() {
 
-    async function carPhoto() {
+            try {
+                const response = await axios.get(`https://api.fuelapi.com/v1/json/vehicle/${car}?productID=1&productFormatIDs=1&shotCode=037&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1`,
+                )
+                setPic(response.data.products[0].productFormats[0].assets[0].url)
+                console.log(response.data.products[0].productFormats[0].assets[0].url)
+            } catch (e) {
+                console.error(e)
+            }
 
-        try {
-            const response = await axios.get(`https://api.fuelapi.com/v1/json/vehicle/${car}?productID=1&productFormatIDs=1&shotCode=037&api_key=daefd14b-9f2b-4968-9e4d-9d4bb4af01d1`,
-            )
-            setPic(response.data.products[0].productFormats[0].assets[0].url)
-            console.log(response.data.products[0].productFormats[0].assets[0].url)
-        } catch (e) {
-            console.error('Fout')
         }
-
-    }
+        carPhoto()
+    }, [car]);
 
 
     return (
         <>
-            <div className="wrapper-check">
-                {Object.keys(sell).length > 0 &&
-                    <article className="search-result-box">
+             <div className="wrapper-check">
+                 {Object.keys(sell).length > 0 &&
+                   <article className="search-result-box">
                         {loading && <p className='error'>Een moment geduld a.u.b</p>}
-                        <span className="title-container">
+                       <span className="title-container">
                              <h1>Verkoopcheck {uppercase(sell.brand, sell.model)}</h1>
                             </span>
                         <p>Dit voertuig heeft {assessment(sell.assessment)} kilometerstand, en de laatste registratie
@@ -114,14 +124,12 @@ function Sellcheck() {
                             auto {notStolen(sell.notstolen)} gestolen geregistreerd staat.</p>
                         <p>De fabrikant heeft {recall(sell.recall)} terugroepactie voor dit voertuig, en je
                             bent {insurance(sell.insurance)}.</p>
-                        <p>Over {countDays(sell.apk)} dagen verloopt de apk keuring van deze auto.</p>
-                    </article>}
+                         <p>Over {countDays(sell.apk)} dagen verloopt de apk keuring van deze auto.</p>
+                    </article> }
                 <article className="car-box">
-                    <img className="car" src={pic} alt="Impressie van het voertuig"/>
+                    {pic ? <img className="car" src={pic} alt="Impressie van het voertuig"/> :
+                        <img className="no-image" src={noimage} alt="Geen afbeelding beschikbaar"/>}
                 </article>
-
-                <button onClick={carPic}>id</button>
-                <button onClick={carPhoto}>Pic</button>
 
 
             </div>
