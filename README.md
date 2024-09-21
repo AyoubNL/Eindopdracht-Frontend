@@ -23,39 +23,25 @@ De voertuiggegevens zijn betrouwbaar omdat ze afkomstig zijn van de RDW (Rijksdi
 <a id="item-two"></a>
 
 ## Benodigdheden
+APKdash draait op React versie 18 en voor het runnen van npm-commando's moet Node.js geinstalleerd zijn, npm is de standaard pakketbeheerder voor de JavaScript-runtime-omgeving Node.js,
+daarnaast maakt de applicatie gebruik van een aantal 'dependencies' zoals Axios, voor het binnenhalen van API-data. De jwt-decode is een handige tool voor het ontcijferen van de JWT-token. De applicatie draait
+op drie externe informatiebronnen. De eerste informatiebron is de database met gebruikers, de tweede informatiebron is
+de database met voertuiggegevens van Nederland en de derde informatiebron is de database met voertuigfoto's. 
+Voor het werkend krijgen van de applicatie moet er een env. bestand aangemaakt worden en dit bestand moet gevuld worden 
+met de variabel-namen zoals beschreven in de env.dist. map. Na het aanmaken van de API keys moet er een build gedraaid 
+worden door de commando npm run build in de terminal te runnen. 
 
-APKdash draait op React versie 18 en maakt daarnaast gebruik van een aantal 'dependencies' zoals Axios, voor het
-binnenhalen van API-data. De jwt-decode is een handige tool voor het ontcijferen van de JWT-token. De applicatie draait
-op twee externe informatiebronnen. De eerste informatiebron is de database met gebruikers en de tweede informatiebron is
-de database met voertuiggegevens van Nederland. Voor het werkend krijgen van de applicatie moet er een env. bestand
-aangemaakt worden en dit bestand moet gevuld worden met de variabel-namen zoals beschreven in env.dist. map. Na het
-aanmaken van de API keys moet er een build gedraaid worden door de commando npm run build in de terminal te runnen. 
 
-Hieronder staan de twee API keys van bovenstaande informatiebronnen:                   
-VITE_API_KEY=apkdash:FvHuI1XWwbfWXBseFvR8
-VITE_RDW_KEY=2ORnyM5ZifXL8QrSXOUaq3nUV
 
 <a id="item-three"></a>
 ## De applicatie draaien
 
-Door het project te clonen vanuit mijn Github pagina krijg je een identieke versie op jouw eigen computer. Je kan het
-project dan bekijken en naar eigen inzicht aanpassingen toevoegen. Het project kan je vinden
-op https://github.com/AyoubNL/Eindopdracht-Frontend installeer eerst de `node_modules` door het volgende
-commando in de terminal te runnen:
+https://github.com/AyoubNL/Eindopdracht-Frontend
 
-```
-npm install
-```
-
-Wanneer dit klaar is, kun je de applicatie starten met behulp van:
-
-```
-npm run dev
-```
-
-of gebruik de WebStorm knop (npm start). Open [http://localhost:3000](http://localhost:3000/) om de pagina in de browser
-te bekijken.
-
+1. Clone bovenstaande Github-project op eigen computer
+2. Installeer eerst de `node_modules` door commando `npm install` te runnen in de terminal
+3. Applicatie starten door `npm run dev` te runnen in de terminal
+4. Klik op de [http://localhost:xxxx](http://localhost:xxxx/) link om de pagina in de browser te bekijken
 
 <a id="item-four"></a>
 ## Testaccount
